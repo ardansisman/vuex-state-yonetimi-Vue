@@ -2,49 +2,18 @@ import Vue from "vue";
 import Vuex from "vuex";
 
 Vue.use(Vuex);
-
+import  counter  from "./modules/counter";
+import * as getters from "./getters";
+import * as mutations from "./mutations";
+import * as actions from "./actions";
 export const store = new Vuex.Store({
   state: {
-    counter: 0,
-    value : 0
+    value: 0,
   },
-  getters: {
-    getDoubleCounter(state) {
-      return state.counter * 2;
-    },
-    stringCounter(state) {
-      return state.counter + ". kez tıklandı";
-    },
-    getValue(state){
-        return state.value;
-    }
+  getters,
+  mutations,
+  actions,
+  modules: {
+    counter
   },
-  mutations: {
-    increaseCounter(state, payload) {
-      state.counter += payload;
-    },
-    decreaseCounter(state) {
-        state.counter--;
-      },
-      setValue(state, payload){
-          state.value = payload;
-      }
-  },
-  actions:{
-      increment({commit}){
-          commit("increaseCounter");
-      },
-      decrement({commit}){
-          commit("decreaseCounter");
-      },
-      incAsync({commit}, payload){
-          setTimeout(() => {
-        commit("increaseCounter", 10);
-              
-          }, payload.time);
-    },
-    setValueData({commit}, payload){
-        commit("setValue", payload);
-    }
-  }
 });

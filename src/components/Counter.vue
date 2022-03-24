@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button class="btn btn-success" @click="increaseCounter">+ Arttır</button>
+    <button class="btn btn-success" @click="increaseCounter(2)">+ Arttır</button>
     <button class="btn btn-danger" @click="decreaseCounter">- Azalt</button>
     <hr />
     <button class="btn btn-success" @click="increment({x : 10})">+ Arttır</button>
